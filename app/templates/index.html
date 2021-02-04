@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<div>
+    <div class="row">
+        {% if user.is_authenticated %}
+        <div class="col-sm-12">
+            <h1>Welcome</h1>
+            <p>This site is an API that expose three endpoints like examples below: </p>
+            <ul>
+                <li>Pow method: <a href="http://127.0.0.1:8000/pow?b=2&e=3">host/pow?b=2&e=3 (optional: /m=3)</a></li>
+                <li>Fibbonaci sequence: <a href="http://127.0.0.1:8000/fib?n=3">host/fib?n=3</a></li>
+                <li>Factorial method: <a href="http://127.0.0.1:8000/fact?n=3">host/fact?n=3</a></li>
+            </ul>
+        </div>
+
+        {% else %}
+        <div class="col-sm-5">
+        </div>
+        <div class="col-sm-7">
+            <a class="nav-link" href="{% url 'register' %}">
+                <button type="button" class="btn btn-primary btn-lg">Create your account</button>
+            </a>
+        </div>
+    </div>
+</div>
+    {% endif %}
+{% endblock %}

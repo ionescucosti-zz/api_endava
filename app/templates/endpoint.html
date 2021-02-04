@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<div>
+    {% if user.is_authenticated %}
+    <div class="row">
+        <ul>
+            <li><a class="nav-link disabled">Result: <strong>{{ result }}</strong>.</a></li>
+            {% if optional %}
+            <li><a class="nav-link disabled">* <i>{{ optional }}</i>.</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    {% else %}
+    <div class="col-sm-5">
+    </div>
+    <div class="col-sm-7">
+        <a class="nav-link" href="{% url 'register' %}">
+            <button type="button" class="btn btn-primary btn-lg">Create your account</button>
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
